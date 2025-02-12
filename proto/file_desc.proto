@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+message File {
+    string name = 1;
+    bool is_dir = 2;
+    Files children = 3;
+}
+
+message Files {
+    repeated File files = 1;
+}
