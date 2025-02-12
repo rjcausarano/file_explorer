@@ -21,15 +21,13 @@ MainFrame::MainFrame() : wxFrame(nullptr, wxID_ANY, "Hello World", wxDefaultPosi
 }
 
 void MainFrame::OnHello(wxCommandEvent& event){
-    SetStatusText("Hello there... " + std::to_string(count_));
-    count_++;
-    // try{
-    //     File file("../test/");
-    //     file.list();
-    //     std::cout << "file name: " << file.getName() << std::endl;
-    //     std::cout << "Is dir? " << file.isDir() << std::endl;
-    //     file.del();
-    // } catch(const std::exception& e){
-    //     std::cerr << "Caught exception: " << e.what() << '\n';
-    // }
+    // SetStatusText("Hello there... " + std::to_string(count_));
+    try{
+        File file("../test");
+        file.list();
+        std::cout << "file name: " << file.getName() << std::endl;
+        file.del();
+    } catch(const std::exception& e){
+        std::cerr << "Caught exception: " << e.what() << '\n';
+    }
 }

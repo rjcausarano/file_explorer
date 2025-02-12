@@ -8,16 +8,17 @@ typedef std::vector<std::string> stringvec;
 
 class File {
 public:
-    File(const std::string path);
+    File(const std::string& path);
     ~File();
     std::string getName();
     stringvec list();
     bool isDir();
+    bool isEmptyDir();
     void del();
 private:
-    bool exists();
+    void assert_existance(const std::string& path);
+    bool exists(const std::string& path);
 
     std::string path_;
     std::string name_;
-    DIR* dir_{nullptr};
 };

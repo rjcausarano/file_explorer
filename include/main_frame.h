@@ -8,6 +8,4 @@ public:
  
 private:
     void OnHello(wxCommandEvent& event);
-
-    unsigned char count_{0};
 };
