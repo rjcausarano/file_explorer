@@ -4,21 +4,25 @@
 #include <vector>
 #include <dirent.h>
 
+class File;
+
 typedef std::vector<std::string> stringvec;
+typedef std::vector<File> filevec;
 
 class File {
 public:
-    File(const std::string& path);
-    ~File();
-    std::string getName();
-    stringvec list();
-    bool isDir();
-    bool isEmptyDir();
-    void del();
+  File(const std::string& path);
+  ~File();
+  std::string getName() const;
+  stringvec list() const;
+  filevec children() const;
+  bool isDir() const;
+  bool isEmptyDir() const;
+  void del();
 private:
-    void assert_existance(const std::string& path);
-    bool exists(const std::string& path);
+  void assert_existance(const std::string& path) const;
+  bool exists(const std::string& path) const;
 
-    std::string path_;
-    std::string name_;
+  std::string path_;
+  std::string name_;
 };

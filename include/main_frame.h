@@ -4,8 +4,8 @@
 
 class MainFrame : public wxFrame {
 public:
-    MainFrame();
- 
+	MainFrame();
+
 private:
-    void OnHello(wxCommandEvent& event);
+	void OnHello(wxCommandEvent& event);
 };
