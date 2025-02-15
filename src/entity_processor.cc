@@ -13,6 +13,10 @@ EntityProcessor::EntityProcessor(const std::string serialized_data){
   entity_.ParseFromString(serialized_data);
 }
 
+Entity EntityProcessor::getEntity() const{
+  return entity_;
+}
+
 void EntityProcessor::createNestedEntity(File parentFile, Entity* parentEntity) const{
   for(File childFile : parentFile.children()){
     Entity* childEntity = parentEntity->add_entities();

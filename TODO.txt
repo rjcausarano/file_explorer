@@ -1,1 +1,3 @@
 Now show in the GUI an Entity description received from the server.
+
+Currently blowing up when trying to create root item multiple times. Look for a way to delete previous root item on every click

@@ -10,6 +10,7 @@ class EntityProcessor{
   EntityProcessor(const Entity& entity);
   EntityProcessor(const std::string serialized_data);
 	std::string serialize() const;
+  Entity getEntity() const;
   void printDescription() const;
 	
 	private:
