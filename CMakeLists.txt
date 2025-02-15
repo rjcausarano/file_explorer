@@ -34,7 +34,7 @@ include_directories(${Protobuf_INCLUDE_DIRS})
 set(SOURCES
   src/file.cc
   src/main_frame.cc
-  src/file_serializer.cc
+  src/entity_processor.cc
   proto/dir_descriptor.pb.cc
 )
 
