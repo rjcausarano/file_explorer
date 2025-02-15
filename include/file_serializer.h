@@ -10,6 +10,6 @@ class FileSerializer{
 	std::string serialize() const;
 	
 	private:
-  void nestedList(File parentFile, Entity& parentEntity) const;
+  void nestedList(File parentFile, Entity* parentEntity) const;
 	File file_;
 };
