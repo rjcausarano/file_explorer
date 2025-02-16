@@ -2,7 +2,7 @@
 
 #include <wx/wx.h>
 #include <wx/dirctrl.h>
-#include "../proto/dir_descriptor.pb.h"
+#include "comms/entity.pb.h"
 
 class MainFrame : public wxFrame {
 public:

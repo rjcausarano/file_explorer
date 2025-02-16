@@ -32,6 +32,7 @@ void MainFrame::onClick(wxCommandEvent& event){
   File file("../test/parent_dir");
 	EntityProcessor entityProcessor(file);
   Entity entity = entityProcessor.getEntity();
+  dirlist_->DeleteAllItems();
   wxTreeItemId rootId = dirlist_->AddRoot(entity.name());
   updateTree(entity, rootId);
 }

@@ -1,7 +1,7 @@
 #pragma once
 
 #include "file.h"
-#include "../proto/dir_descriptor.pb.h"
+#include "comms/entity.pb.h"
 #include <string>
 
 class EntityProcessor{
