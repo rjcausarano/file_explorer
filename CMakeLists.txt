@@ -1,15 +1,13 @@
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.30)
 project(file_explorer)
 
-set(CMAKE_CXX_COMPILER "g++")
-set(CMAKE_C_COMPILER "gcc")
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
+add_subdirectory(sockets)
+
 # Find wx-config
 find_program(WX_CONFIG_EXECUTABLE ../wxWidgets-3.2.6/build-cocoa-debug/wx-config)
-
-find_package(Protobuf REQUIRED CONFIG)
 
 if (NOT WX_CONFIG_EXECUTABLE)
   message(FATAL_ERROR "wx-config not found! Please ensure wxWidgets is installed.")
@@ -31,9 +29,9 @@ execute_process(
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${WX_CXX_FLAGS}")
 set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${WX_LINKER_FLAGS}")
 
-include_directories(${Protobuf_INCLUDE_DIRS})
-
-link_directories(libs)
+include_directories(
+  include
+)
 
 set(SOURCES
   src/file.cc
@@ -45,15 +43,8 @@ set(TEST_FILES
   test/test.cc
 )
 
-set(COMMS
-  libcomms.dylib
-)
-
-# Add your executable
 add_executable(${PROJECT_NAME} src/main.cc ${SOURCES})
-target_include_directories(${PROJECT_NAME} PRIVATE include)
-target_link_libraries(${PROJECT_NAME} PUBLIC ${WX_LINKER_FLAGS} ${COMMS} protobuf::libprotobuf)
+target_link_libraries(${PROJECT_NAME} PUBLIC ${WX_LINKER_FLAGS} comms)
 
 add_executable(test ${TEST_FILES} ${SOURCES})
-target_include_directories(test PRIVATE include)
-target_link_libraries(test ${COMMS} protobuf::libprotobuf)
+target_link_libraries(test comms)
