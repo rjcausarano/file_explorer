@@ -11,7 +11,7 @@ Header CommandProcessor::process(std::string type, std::string data) const {
   if(type == common::getClassName<EntityRequest>()){
     EntityRequest req;
     req.ParseFromString(data);
-    EntityProcessor processor(req.path());
+    EntityProcessor processor(File(req.path()));
     Entity entity = processor.getEntity();
     responseHeader = HeaderFactory::createHeader(entity);
   }

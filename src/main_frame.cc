@@ -1,6 +1,6 @@
 #include "main_frame.h"
 #include "file.h"
-#include "entity_processor.h"
+#include "comms/communicator.h"
 
 MainFrame::MainFrame() : wxFrame(nullptr, wxID_ANY, "Hello World", wxDefaultPosition, wxSize(500, 500)){
   CreateStatusBar();
@@ -29,9 +29,8 @@ void MainFrame::updateTree(const Entity parentEntity, wxTreeItemId parentId){
 }
 
 void MainFrame::onClick(wxCommandEvent& event){
-  File file("../test/parent_dir");
-	EntityProcessor entityProcessor(file);
-  Entity entity = entityProcessor.getEntity();
+  Communicator communicator("0.0.0.0");
+  Entity entity = communicator.getDirTree("/Users/rodric/Downloads");
   dirlist_->DeleteAllItems();
   wxTreeItemId rootId = dirlist_->AddRoot(entity.name());
   updateTree(entity, rootId);

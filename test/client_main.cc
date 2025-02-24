@@ -13,7 +13,7 @@ int main(int argc, char const* argv[])
   }
 
   Communicator communicator((std::string(argv[1])));
-  Entity entity = communicator.getDirTree(".");
+  Entity entity = communicator.getDirTree("/Users/rodric/Downloads");
   EntityProcessor processor(entity);
   processor.printDescription();
   std::string tmp;
