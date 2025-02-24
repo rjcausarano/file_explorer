@@ -35,14 +35,7 @@ include_directories(
 )
 
 set(SOURCES
-  src/file.cc
   src/main_frame.cc
-  src/entity_processor.cc
-)
-
-set(TEST_FILES
-  test/command_processor.cc
-  src/entity_processor.cc
 )
 
 add_executable(${PROJECT_NAME} src/main.cc ${SOURCES})
@@ -50,9 +43,6 @@ target_link_libraries(${PROJECT_NAME} PUBLIC ${WX_LINKER_FLAGS} comms)
 
 add_executable(test test/test.cc ${TEST_FILES} ${SOURCES})
 target_link_libraries(test comms)
-
-add_executable(server test/server_main.cc ${TEST_FILES} ${SOURCES})
-target_link_libraries(server comms)
 
 add_executable(client test/client_main.cc ${TEST_FILES} ${SOURCES})
 target_link_libraries(client comms)

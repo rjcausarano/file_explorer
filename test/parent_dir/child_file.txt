@@ -1,1 +1,0 @@
-I am the child of parent_dir.
