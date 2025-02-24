@@ -1,3 +1,4 @@
-Now show in the GUI an Entity description received from the server.
-
-Currently blowing up when trying to create root item multiple times. Look for a way to delete previous root item on every click
+Fetch files only one level deep and only when user expands a directory, this will prevent infinite nesting
+add option to rename and delete remote files
+add option to download remote files
+add option to upload files to remote server

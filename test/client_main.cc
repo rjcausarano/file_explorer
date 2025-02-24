@@ -12,7 +12,8 @@ int main(int argc, char const* argv[])
     return 1;
   }
 
-  Communicator communicator((std::string(argv[1])));
+  Communicator communicator;
+  communicator.connect((std::string(argv[1])));
   Entity entity = communicator.getDirTree("/Users/rodric/Downloads");
   EntityProcessor processor(entity);
   processor.printDescription();
