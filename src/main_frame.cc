@@ -1,7 +1,7 @@
 #include "main_frame.h"
 #include "file.h"
 
-MainFrame::MainFrame() : communicator_{"0.0.0.0"}, wxFrame(nullptr, wxID_ANY, "Hello World", wxDefaultPosition, wxSize(500, 500)){
+MainFrame::MainFrame() : communicator_{"143.198.158.180"}, wxFrame(nullptr, wxID_ANY, "Hello World", wxDefaultPosition, wxSize(500, 500)){
   CreateStatusBar();
   SetStatusText("No status update...");
 
@@ -28,7 +28,7 @@ void MainFrame::updateTree(const Entity parentEntity, wxTreeItemId parentId){
 }
 
 void MainFrame::onClick(wxCommandEvent& event){
-  Entity entity = communicator_.getDirTree("/Users/rodric/Downloads");
+  Entity entity = communicator_.getDirTree("/home/rodri/server_root");
   dirlist_->DeleteAllItems();
   wxTreeItemId rootId = dirlist_->AddRoot(entity.name());
   updateTree(entity, rootId);
