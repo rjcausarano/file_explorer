@@ -3,6 +3,7 @@
 #include <wx/wx.h>
 #include <wx/dirctrl.h>
 #include "comms/entity.pb.h"
+#include "comms/communicator.h"
 
 class MainFrame : public wxFrame {
 public:
@@ -13,4 +14,5 @@ private:
   void updateTree(const Entity parentEntity, wxTreeItemId parentId);
 
   wxTreeCtrl* dirlist_;
+  Communicator communicator_;
 };
