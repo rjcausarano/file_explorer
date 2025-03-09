@@ -41,8 +41,8 @@ set(SOURCES
 add_executable(${PROJECT_NAME} src/main.cc ${SOURCES})
 target_link_libraries(${PROJECT_NAME} PUBLIC ${WX_LINKER_FLAGS} comms)
 
-add_executable(test test/test.cc ${TEST_FILES} ${SOURCES})
-target_link_libraries(test comms)
+add_executable(testing test/test.cc ${TEST_FILES} ${SOURCES})
+target_link_libraries(testing comms)
 
 add_executable(client test/client_main.cc ${TEST_FILES} ${SOURCES})
 target_link_libraries(client comms)

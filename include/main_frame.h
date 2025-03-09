@@ -11,6 +11,7 @@ public:
 	MainFrame();
 
 private:
+  void onClick(wxCommandEvent& event);
   void onConnect(wxCommandEvent& event);
   void onTreeRightClick(wxTreeEvent& event);
   void updateTree(const Entity parentEntity, wxTreeItemId parentId);

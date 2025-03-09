@@ -14,7 +14,7 @@ int main(int argc, char const* argv[])
 
   Communicator communicator;
   communicator.connect((std::string(argv[1])));
-  Entity entity = communicator.getDirTree("/Users/rodric/Downloads");
+  Entity entity = communicator.getDirChildren("/Users/rodric/Downloads");
   EntityProcessor processor(entity);
   processor.printDescription();
   std::string tmp;

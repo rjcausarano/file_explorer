@@ -47,12 +47,12 @@ void MainFrame::onConnect(wxCommandEvent& event) {
   }
 }
 
-// void MainFrame::onClick(wxCommandEvent& event){
-  // Entity entity = communicator_.getDirTree("/Users/rodric/projects/file_explorer");
-  // dirlist_->DeleteAllItems();
-  // wxTreeItemId rootId = dirlist_->AddRoot(entity.name());
-  // updateTree(entity, rootId);
-// }
+void MainFrame::onClick(wxCommandEvent& event){
+  Entity entity = communicator_.getDirChildren("/Users/rodric/projects/file_explorer");
+  dirlist_->DeleteAllItems();
+  wxTreeItemId rootId = dirlist_->AddRoot(entity.name());
+  updateTree(entity, rootId);
+}
 
 void MainFrame::onTreeRightClick(wxTreeEvent& event){
   wxTreeItemId item = event.GetItem();
